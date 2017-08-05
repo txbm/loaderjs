@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const { describe, it } = require('mocha');
 
 const definitions = require('../definitions');
-const fixtures = require('../../__tests__/fixtures/legacy/node-definitions');
+const fixtures = require('../../__tests__/fixtures/node-definitions');
 
 describe('Simple invalid node definitions', () => {
   it('fail to parse and validate', () => {

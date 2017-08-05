@@ -5,7 +5,7 @@ const {
   beforeEach
 } = require('mocha');
 
-const fixtures = require('../../../__tests__/fixtures/legacy/node-definitions');
+const fixtures = require('../../../__tests__/fixtures/node-definitions');
 
 const {
   starWarsConnection,
@@ -40,6 +40,6 @@ describe('The PG datastore implementation', () => {
       'mah_pg',
       starWarsConnection);
 
-    // const sNode =
+    const sNode =
   });
 });

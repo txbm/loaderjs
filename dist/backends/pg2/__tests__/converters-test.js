@@ -6,7 +6,7 @@ const {
   afterEach
 } = require('mocha');
 
-const fixtures = require('../../../__tests__/fixtures/legacy/node-definitions');
+const fixtures = require('../../../__tests__/fixtures/node-definitions');
 const defs = require('../../../nodes/definitions');
 const converters = require('../converters');
 

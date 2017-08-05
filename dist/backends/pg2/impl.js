@@ -1,4 +1,4 @@
-/* @flow */
+/*       */
 
 const invariant = require('invariant');
 
@@ -18,40 +18,40 @@ const {
   selectWhereInManyWithFilterSort
 } = require('./queries');
 
-import type {
-  NodeDefinitionP,
-  NodeCanonicalP,
-  NodePropertyP,
-  NodeRelationP
-} from '../../nodes/definitions';
+             
+                  
+                 
+                
+               
+                                 
 
-import type {
-  NodeRelationLoaderKeyInput
-} from '../../nodes/loaders';
+             
+                            
+                             
 
-import type {
-  Backend,
-  NodeQueryResult,
-  VanityQueryResult,
-  RelationQueryResult
-} from '../interface';
+             
+          
+                  
+                    
+                     
+                      
 
-import type {
-  PGConnection,
-  PGPool,
-  PGQueryResult
-} from './engine';
+             
+               
+         
+               
+                  
 
-import type {
+import {
   PostgresBackendOptions
 } from './types';
 
-class Postgres implements Backend {
-  name: string;
-  connection: PGConnection;
-  pool: PGPool;
+class Postgres                    {
+               
+                           
+               
 
-  constructor (name: string, connection: PGConnection) {
+  constructor (name        , connection              ) {
     invariant(
       name,
       'A backend name is required when constructing a Postgres instance.');
@@ -74,15 +74,15 @@ class Postgres implements Backend {
   }
 
   canonicalQuery(
-    def: NodeDefinitionP,
-    canonical: NodeCanonicalP,
-    keys: string[]
-  ): Promise<NodeQueryResult> {
-    const backendOpts: PostgresBackendOptions = canonical.backendOpts;
+    def                 ,
+    canonical                ,
+    keys          
+  )                           {
+    const backendOpts                         = canonical.backendOpts;
 
     const selectCols = def.properties.reduce((p, c) => {
       if (c.backendName == canonical.backendName) {
-        const propOpts: PostgresBackendOptions = c.backendOpts;
+        const propOpts                         = c.backendOpts;
         p.push(propOpts.column);
       }
       return p;
@@ -114,19 +114,19 @@ class Postgres implements Backend {
   }
 
   vanityQuery(
-    def: NodeDefinitionP,
-    prop: NodePropertyP,
-    keys: string[]
-  ): Promise<VanityQueryResult> {
+    def                 ,
+    prop               ,
+    keys          
+  )                             {
     return Promise.resolve([]);
   }
 
   relationQuery(
-    def: NodeDefinitionP,
-    rel: NodeRelationP,
-    rfks: NodeRelationLoaderKeyInput[]
-  ): Promise<RelationQueryResult> {
-    const opts: PostgresBackendOptions = rel.backendOpts;
+    def                 ,
+    rel               ,
+    rfks                              
+  )                               {
+    const opts                         = rel.backendOpts;
 
     const query = selectWhereInManyWithFilterSort(
       opts.table,
